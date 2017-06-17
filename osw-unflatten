@@ -1,0 +1,10 @@
+#!/bin/zsh
+if [ "${1}" ]; then
+	unzip "${1}"
+fi
+for d in iostat meminfo mpstat netstat prvtnet ps slabinfo top vmstat
+do
+	dn="osw${d}"
+	mkdir -p "${dn}"
+	mv -f *_${d}_* ${dn}/
+done
